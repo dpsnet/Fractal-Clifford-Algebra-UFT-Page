@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统一场理论研究 | Unified Field Theory Research</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmZmZmMTAiPjwvcmVjdD4KPHBhdGggZD0iTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVoiIHN0cm9rZT0iI2ZmZmZmZjIwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+');
+            opacity: 0.1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            margin-left: 10px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .core-theory {
+            background-color: var(--bg-color);
+        }
+        
+        .theory-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .theory-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .theory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .theory-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .theory-card p {
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .papers {
+            background-color: white;
+        }
+        
+        .paper-series {
+            margin-bottom: 50px;
+        }
+        
+        .paper-series h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .paper-list {
+            list-style: none;
+        }
+        
+        .paper-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .paper-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .paper-title {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .paper-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .paper-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .achievements {
+            background-color: var(--bg-color);
+        }
+        
+        .achievement-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .achievement-item {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .achievement-item h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .achievement-item p {
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">统一场理论研究</a>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#theory">核心理论</a></li>
+                <li><a href="#papers">论文列表</a></li>
+                <li><a href="#achievements">研究成果</a></li>
+                <li><a href="#about">关于作者</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>统一场理论研究</h1>
+            <p>探索数学与物理的交叉领域，构建统一场理论的基础框架</p>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>从分形几何到统一场理论</h1>
+                    <p>本研究通过整合分形几何、模形式理论、谱维流动等现代数学工具，探索物理学中统一场理论的基础框架。研究涵盖从基础数学理论到物理应用的多个层面，旨在为统一场理论的发展提供新的数学基础和方法。</p>
+                    <a href="#theory" class="btn">了解核心理论</a>
+                    <a href="#papers" class="btn btn-outline">查看论文</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fractal%20geometry%20unified%20field%20theory%20mathematical%20physics%20abstract%20visualization&image_size=landscape_16_9" alt="统一场理论可视化">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="theory" class="core-theory">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心理论</h2>
+                <p>本研究的核心理论框架，涵盖数学基础与物理应用</p>
+            </div>
+            <div class="theory-cards">
+                <div class="theory-card">
+                    <h3>分形几何理论</h3>
+                    <p>研究分形维数的基本理论与无理数表示基础，提出统一分形维数表达式，为描述时空的分形结构提供数学工具。</p>
+                </div>
+                <div class="theory-card">
+                    <h3>模形式理论</h3>
+                    <p>利用权为1的模形式空间构造PTE解系，建立模形式与素数分布的联系，为统一场理论提供数论基础。</p>
+                </div>
+                <div class="theory-card">
+                    <h3>谱维流动理论</h3>
+                    <p>研究谱维随尺度变化的流动方程，建立时空几何的能标依赖性模型，为理解量子引力提供新的视角。</p>
+                </div>
+                <div class="theory-card">
+                    <h3>PTE问题研究</h3>
+                    <p>探索Prouhet-Tarry-Escott问题的分形特征与模形式表示，构造素数PTE解，揭示整数集合的深层结构。</p>
+                </div>
+                <div class="theory-card">
+                    <h3>高维推广与几何表示</h3>
+                    <p>将PTE问题推广到高维空间，研究高维PTE解的几何性质，为统一场理论中的高维时空模型提供数学基础。</p>
+                </div>
+                <div class="theory-card">
+                    <h3>优化算法设计</h3>
+                    <p>基于L-BFGS-B算法设计高效的PTE解搜索算法，结合并行计算技术，提高大规模问题的处理能力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="papers" class="papers">
+        <div class="container">
+            <div class="section-title">
+                <h2>论文列表</h2>
+                <p>本研究的主要论文成果，按系列分类</p>
+            </div>
+            
+            <div class="paper-series">
+                <h3>高级理论框架 (Advanced Theoretical Framework)</h3>
+                <ul class="paper-list">
+                    <li>
+                        <span class="paper-title">M-1：谱维Clifford几何重建</span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-1_en.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-2：分形Clifford代数几何与数论基础</span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-2_EN.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-3：分形Clifford代数高级数学结构</span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-3_EN.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-4：三代费米子结构与质量谱起源</span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-4_EN.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-5：四力统一规范场框架</span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-5_EN.md" class="paper-link">查看论文</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="paper-series">
+                <h3>基础数学理论 (Fundamental Mathematics)</h3>
+                <ul class="paper-list">
+                    <li>
+                        <span class="paper-title">M-0.1：分形维数的基本理论与无理数表示基础</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.1_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-0.2：统一分形维数表达式的严格基础</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.2_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-0.3：谱维流动与统一分形维数表达式</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.3_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-0.4：模形式理论与素数分形集</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.4_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-0.9：PTE问题：数论、几何与物理的交叉研究</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.9_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-0.10：分形测度理论与Hausdorff测度的严格基础</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.10_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">M-0.14：时空形式理论与高维几何</span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.14_cn.md" class="paper-link">查看论文</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="paper-series">
+                <h3>物理应用 (Physical Applications)</h3>
+                <ul class="paper-list">
+                    <li>
+                        <span class="paper-title">P-1：三代费米子结构与质量谱起源</span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-1.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">P-2：四力统一规范场框架</span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-2_split/P-2.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">P-3：量子引力与宇宙学的分形修正</span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-3.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">P-5：分形物理核心理论拓展</span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-5.md" class="paper-link">查看论文</a>
+                    </li>
+                    <li>
+                        <span class="paper-title">P-15：黑洞内部的宏观时空消失</span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-15_split/P-15.md" class="paper-link">查看论文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>研究成果</h2>
+                <p>本研究的主要贡献和成果</p>
+            </div>
+            <div class="achievement-list">
+                <div class="achievement-item">
+                    <h4>建立了PTE问题与分形几何的深层联系</h4>
+                    <p>揭示了PTE解的几何表示和分形特征，证明了PTE解空间的豪斯多夫维数为2m - n，为理解PTE解的分布规律提供了新的视角。</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>建立了模形式理论与PTE解生成函数的对应关系</h4>
+                    <p>利用权为1的模形式构造PTE解系，证明了素数PTE解的存在性，为素数分布规律的研究提供了新的方法。</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>建立了谱维流动与PTE解尺度变化的模型</h4>
+                    <p>描述了PTE解的能标依赖性，为理解时空几何的分形结构提供了数学基础，与量子引力中的谱维流动概念建立了联系。</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>设计了基于L-BFGS-B的高效PTE解搜索算法</h4>
+                    <p>结合分形几何和模形式理论，提高了PTE解的搜索效率，为大规模PTE问题的研究提供了技术支持。</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>证明了素数PTE解的存在性和无限多解的存在性</h4>
+                    <p>利用模形式的傅里叶系数构造素数PTE解，分析了素数PTE解的分布规律，为素数研究领域提供了新的成果。</p>
+                </div>
+                <div class="achievement-item">
+                    <h4>将PTE问题推广到高维空间</h4>
+                    <p>研究了高维PTE解的几何性质和构造方法，为统一场理论中的高维时空模型提供了数学基础。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于作者</h2>
+                <p>致力于数学与物理交叉领域的研究</p>
+            </div>
+            <div class="about-content">
+                <p>作者专注于数学与物理学的交叉研究，特别是利用现代数学工具（如分形几何、模形式理论、谱维流动等）探索统一场理论的基础框架。研究涵盖从基础数学理论到物理应用的多个层面，旨在为统一场理论的发展提供新的数学基础和方法。</p>
+                <p>通过整合分形几何、模形式理论、谱维流动等现代数学工具，作者构建了一套从数学基础到物理应用的完整研究体系，为统一场理论的发展提供了新的思路和方法。</p>
+                <div style="margin-top: 30px;">
+                    <a href="https://github.com/dpsnet" class="btn" target="_blank">访问GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>统一场理论研究</h3>
+                    <p>探索数学与物理的交叉领域，构建统一场理论的基础框架</p>
+                </div>
+                <div class="footer-section">
+                    <h3>相关链接</h3>
+                    <p><a href="https://github.com/dpsnet/Advanced-Theoretical-Framework">高级理论框架</a></p>
+                    <p><a href="https://github.com/dpsnet/Fundamental-Mathematics">基础数学理论</a></p>
+                    <p><a href="https://github.com/dpsnet/Physical-Applications">物理应用</a></p>
+                    <p><a href="https://github.com/dpsnet/Core-Theory">核心理论</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p><a href="https://github.com/dpsnet">GitHub</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 统一场理论研究. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.backgroundColor = 'white';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
