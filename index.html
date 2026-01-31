@@ -28,6 +28,36 @@
             background-color: var(--bg-color);
         }
         
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+        
+        .lang-btn {
+            padding: 5px 15px;
+            border: 1px solid var(--secondary-color);
+            background-color: white;
+            color: var(--secondary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .lang-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
             color: white;
@@ -83,6 +113,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         .nav-links li {
@@ -386,6 +417,11 @@
                 margin-left: 0;
             }
             
+            .lang-switch {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
             .hero-content {
                 flex-direction: column;
                 text-align: center;
@@ -404,21 +440,61 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">统一场理论研究</a>
+            <a href="#" class="logo">
+                <span class="lang-content active">统一场理论研究</span>
+                <span class="lang-content">Unified Field Theory Research</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#theory">核心理论</a></li>
-                <li><a href="#papers">论文列表</a></li>
-                <li><a href="#achievements">研究成果</a></li>
-                <li><a href="#about">关于作者</a></li>
+                <li>
+                    <a href="#home">
+                        <span class="lang-content active">首页</span>
+                        <span class="lang-content">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#theory">
+                        <span class="lang-content active">核心理论</span>
+                        <span class="lang-content">Core Theory</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#papers">
+                        <span class="lang-content active">论文列表</span>
+                        <span class="lang-content">Papers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#achievements">
+                        <span class="lang-content active">研究成果</span>
+                        <span class="lang-content">Achievements</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about">
+                        <span class="lang-content active">关于作者</span>
+                        <span class="lang-content">About</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="lang-switch">
+                        <button class="lang-btn active" data-lang="zh">中文</button>
+                        <button class="lang-btn" data-lang="en">English</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <header>
         <div class="container">
-            <h1>统一场理论研究</h1>
-            <p>探索数学与物理的交叉领域，构建统一场理论的基础框架</p>
+            <h1>
+                <span class="lang-content active">统一场理论研究</span>
+                <span class="lang-content">Unified Field Theory Research</span>
+            </h1>
+            <p>
+                <span class="lang-content active">探索数学与物理的交叉领域，构建统一场理论的基础框架</span>
+                <span class="lang-content">Exploring the intersection of mathematics and physics, building the foundation for unified field theory</span>
+            </p>
         </div>
     </header>
 
@@ -426,10 +502,22 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>从分形几何到统一场理论</h1>
-                    <p>本研究通过整合分形几何、模形式理论、谱维流动等现代数学工具，探索物理学中统一场理论的基础框架。研究涵盖从基础数学理论到物理应用的多个层面，旨在为统一场理论的发展提供新的数学基础和方法。</p>
-                    <a href="#theory" class="btn">了解核心理论</a>
-                    <a href="#papers" class="btn btn-outline">查看论文</a>
+                    <h1>
+                        <span class="lang-content active">从分形几何到统一场理论</span>
+                        <span class="lang-content">From Fractal Geometry to Unified Field Theory</span>
+                    </h1>
+                    <p>
+                        <span class="lang-content active">本研究通过整合分形几何、模形式理论、谱维流动等现代数学工具，探索物理学中统一场理论的基础框架。研究涵盖从基础数学理论到物理应用的多个层面，旨在为统一场理论的发展提供新的数学基础和方法。</span>
+                        <span class="lang-content">This research explores the fundamental framework of unified field theory in physics by integrating modern mathematical tools such as fractal geometry, modular form theory, and spectral dimension flow. The research covers multiple levels from basic mathematical theory to physical applications, aiming to provide new mathematical foundations and methods for the development of unified field theory.</span>
+                    </p>
+                    <a href="#theory" class="btn">
+                        <span class="lang-content active">了解核心理论</span>
+                        <span class="lang-content">Explore Core Theory</span>
+                    </a>
+                    <a href="#papers" class="btn btn-outline">
+                        <span class="lang-content active">查看论文</span>
+                        <span class="lang-content">View Papers</span>
+                    </a>
                 </div>
                 <div class="hero-image">
                     <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fractal%20geometry%20unified%20field%20theory%20mathematical%20physics%20abstract%20visualization&image_size=landscape_16_9" alt="统一场理论可视化">
@@ -441,33 +529,75 @@
     <section id="theory" class="core-theory">
         <div class="container">
             <div class="section-title">
-                <h2>核心理论</h2>
-                <p>本研究的核心理论框架，涵盖数学基础与物理应用</p>
+                <h2>
+                    <span class="lang-content active">核心理论</span>
+                    <span class="lang-content">Core Theory</span>
+                </h2>
+                <p>
+                    <span class="lang-content active">本研究的核心理论框架，涵盖数学基础与物理应用</span>
+                    <span class="lang-content">The core theoretical framework of this research, covering mathematical foundations and physical applications</span>
+                </p>
             </div>
             <div class="theory-cards">
                 <div class="theory-card">
-                    <h3>分形几何理论</h3>
-                    <p>研究分形维数的基本理论与无理数表示基础，提出统一分形维数表达式，为描述时空的分形结构提供数学工具。</p>
+                    <h3>
+                        <span class="lang-content active">分形几何理论</span>
+                        <span class="lang-content">Fractal Geometry Theory</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">研究分形维数的基本理论与无理数表示基础，提出统一分形维数表达式，为描述时空的分形结构提供数学工具。</span>
+                        <span class="lang-content">Studies the fundamental theory of fractal dimensions and the basis of irrational number representation, proposes unified fractal dimension expressions, and provides mathematical tools for describing the fractal structure of spacetime.</span>
+                    </p>
                 </div>
                 <div class="theory-card">
-                    <h3>模形式理论</h3>
-                    <p>利用权为1的模形式空间构造PTE解系，建立模形式与素数分布的联系，为统一场理论提供数论基础。</p>
+                    <h3>
+                        <span class="lang-content active">模形式理论</span>
+                        <span class="lang-content">Modular Form Theory</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">利用权为1的模形式空间构造PTE解系，建立模形式与素数分布的联系，为统一场理论提供数论基础。</span>
+                        <span class="lang-content">Constructs PTE solution systems using weight 1 modular form spaces, establishes connections between modular forms and prime number distribution, and provides number theory foundations for unified field theory.</span>
+                    </p>
                 </div>
                 <div class="theory-card">
-                    <h3>谱维流动理论</h3>
-                    <p>研究谱维随尺度变化的流动方程，建立时空几何的能标依赖性模型，为理解量子引力提供新的视角。</p>
+                    <h3>
+                        <span class="lang-content active">谱维流动理论</span>
+                        <span class="lang-content">Spectral Dimension Flow Theory</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">研究谱维随尺度变化的流动方程，建立时空几何的能标依赖性模型，为理解量子引力提供新的视角。</span>
+                        <span class="lang-content">Studies flow equations of spectral dimension with scale changes, establishes energy-scale dependent models of spacetime geometry, and provides new perspectives for understanding quantum gravity.</span>
+                    </p>
                 </div>
                 <div class="theory-card">
-                    <h3>PTE问题研究</h3>
-                    <p>探索Prouhet-Tarry-Escott问题的分形特征与模形式表示，构造素数PTE解，揭示整数集合的深层结构。</p>
+                    <h3>
+                        <span class="lang-content active">PTE问题研究</span>
+                        <span class="lang-content">PTE Problem Research</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">探索Prouhet-Tarry-Escott问题的分形特征与模形式表示，构造素数PTE解，揭示整数集合的深层结构。</span>
+                        <span class="lang-content">Explores fractal characteristics and modular form representations of Prouhet-Tarry-Escott problems, constructs prime PTE solutions, and reveals deep structures of integer sets.</span>
+                    </p>
                 </div>
                 <div class="theory-card">
-                    <h3>高维推广与几何表示</h3>
-                    <p>将PTE问题推广到高维空间，研究高维PTE解的几何性质，为统一场理论中的高维时空模型提供数学基础。</p>
+                    <h3>
+                        <span class="lang-content active">高维推广与几何表示</span>
+                        <span class="lang-content">High-dimensional Generalization and Geometric Representation</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">将PTE问题推广到高维空间，研究高维PTE解的几何性质，为统一场理论中的高维时空模型提供数学基础。</span>
+                        <span class="lang-content">Generalizes PTE problems to high-dimensional spaces, studies geometric properties of high-dimensional PTE solutions, and provides mathematical foundations for high-dimensional spacetime models in unified field theory.</span>
+                    </p>
                 </div>
                 <div class="theory-card">
-                    <h3>优化算法设计</h3>
-                    <p>基于L-BFGS-B算法设计高效的PTE解搜索算法，结合并行计算技术，提高大规模问题的处理能力。</p>
+                    <h3>
+                        <span class="lang-content active">优化算法设计</span>
+                        <span class="lang-content">Optimization Algorithm Design</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">基于L-BFGS-B算法设计高效的PTE解搜索算法，结合并行计算技术，提高大规模问题的处理能力。</span>
+                        <span class="lang-content">Designs efficient PTE solution search algorithms based on L-BFGS-B algorithm, combines parallel computing technology, and improves processing capabilities for large-scale problems.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -476,92 +606,209 @@
     <section id="papers" class="papers">
         <div class="container">
             <div class="section-title">
-                <h2>论文列表</h2>
-                <p>本研究的主要论文成果，按系列分类</p>
+                <h2>
+                    <span class="lang-content active">论文列表</span>
+                    <span class="lang-content">Papers</span>
+                </h2>
+                <p>
+                    <span class="lang-content active">本研究的主要论文成果，按系列分类</span>
+                    <span class="lang-content">The main paper achievements of this research, classified by series</span>
+                </p>
             </div>
             
             <div class="paper-series">
-                <h3>高级理论框架 (Advanced Theoretical Framework)</h3>
+                <h3>
+                    <span class="lang-content active">高级理论框架 (Advanced Theoretical Framework)</span>
+                    <span class="lang-content">Advanced Theoretical Framework</span>
+                </h3>
                 <ul class="paper-list">
                     <li>
-                        <span class="paper-title">M-1：谱维Clifford几何重建</span>
-                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-1_en.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-1：谱维Clifford几何重建</span>
+                            <span class="lang-content">M-1: Spectral Dimension Clifford Geometry Reconstruction</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-1_en.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-2：分形Clifford代数几何与数论基础</span>
-                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-2_EN.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-2：分形Clifford代数几何与数论基础</span>
+                            <span class="lang-content">M-2: Fractal Clifford Algebra Geometry and Number Theory Foundations</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-2_EN.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-3：分形Clifford代数高级数学结构</span>
-                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-3_EN.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-3：分形Clifford代数高级数学结构</span>
+                            <span class="lang-content">M-3: Advanced Mathematical Structures of Fractal Clifford Algebra</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-3_EN.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-4：三代费米子结构与质量谱起源</span>
-                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-4_EN.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-4：三代费米子结构与质量谱起源</span>
+                            <span class="lang-content">M-4: Three-Generation Fermion Structure and Origin of Mass Spectrum</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-4_EN.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-5：四力统一规范场框架</span>
-                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-5_EN.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-5：四力统一规范场框架</span>
+                            <span class="lang-content">M-5: Unified Gauge Field Framework for Four Forces</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Advanced-Theoretical-Framework/blob/master/M-5_EN.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                 </ul>
             </div>
             
             <div class="paper-series">
-                <h3>基础数学理论 (Fundamental Mathematics)</h3>
+                <h3>
+                    <span class="lang-content active">基础数学理论 (Fundamental Mathematics)</span>
+                    <span class="lang-content">Fundamental Mathematics</span>
+                </h3>
                 <ul class="paper-list">
                     <li>
-                        <span class="paper-title">M-0.1：分形维数的基本理论与无理数表示基础</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.1_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.1：分形维数的基本理论与无理数表示基础</span>
+                            <span class="lang-content">M-0.1: Basic Theory of Fractal Dimensions and Basis of Irrational Number Representation</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.1_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-0.2：统一分形维数表达式的严格基础</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.2_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.2：统一分形维数表达式的严格基础</span>
+                            <span class="lang-content">M-0.2: Strict Foundation of Unified Fractal Dimension Expressions</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.2_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-0.3：谱维流动与统一分形维数表达式</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.3_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.3：谱维流动与统一分形维数表达式</span>
+                            <span class="lang-content">M-0.3: Spectral Dimension Flow and Unified Fractal Dimension Expressions</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.3_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-0.4：模形式理论与素数分形集</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.4_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.4：模形式理论与素数分形集</span>
+                            <span class="lang-content">M-0.4: Modular Form Theory and Prime Fractal Sets</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.4_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-0.9：PTE问题：数论、几何与物理的交叉研究</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.9_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.9：PTE问题：数论、几何与物理的交叉研究</span>
+                            <span class="lang-content">M-0.9: PTE Problem: Interdisciplinary Research in Number Theory, Geometry and Physics</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.9_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-0.10：分形测度理论与Hausdorff测度的严格基础</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.10_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.10：分形测度理论与Hausdorff测度的严格基础</span>
+                            <span class="lang-content">M-0.10: Fractal Measure Theory and Strict Foundation of Hausdorff Measure</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.10_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">M-0.14：时空形式理论与高维几何</span>
-                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.14_cn.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">M-0.14：时空形式理论与高维几何</span>
+                            <span class="lang-content">M-0.14: Spacetime Form Theory and High-dimensional Geometry</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Fundamental-Mathematics/blob/master/M-0.14_cn.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                 </ul>
             </div>
             
             <div class="paper-series">
-                <h3>物理应用 (Physical Applications)</h3>
+                <h3>
+                    <span class="lang-content active">物理应用 (Physical Applications)</span>
+                    <span class="lang-content">Physical Applications</span>
+                </h3>
                 <ul class="paper-list">
                     <li>
-                        <span class="paper-title">P-1：三代费米子结构与质量谱起源</span>
-                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-1.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">P-1：三代费米子结构与质量谱起源</span>
+                            <span class="lang-content">P-1: Three-Generation Fermion Structure and Origin of Mass Spectrum</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-1.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">P-2：四力统一规范场框架</span>
-                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-2_split/P-2.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">P-2：四力统一规范场框架</span>
+                            <span class="lang-content">P-2: Unified Gauge Field Framework for Four Forces</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-2_split/P-2.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">P-3：量子引力与宇宙学的分形修正</span>
-                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-3.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">P-3：量子引力与宇宙学的分形修正</span>
+                            <span class="lang-content">P-3: Fractal Corrections to Quantum Gravity and Cosmology</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-3.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">P-5：分形物理核心理论拓展</span>
-                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-5.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">P-5：分形物理核心理论拓展</span>
+                            <span class="lang-content">P-5: Core Theory Extension of Fractal Physics</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-5.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                     <li>
-                        <span class="paper-title">P-15：黑洞内部的宏观时空消失</span>
-                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-15_split/P-15.md" class="paper-link">查看论文</a>
+                        <span class="paper-title">
+                            <span class="lang-content active">P-15：黑洞内部的宏观时空消失</span>
+                            <span class="lang-content">P-15: Macroscopic Spacetime Disappearance Inside Black Holes</span>
+                        </span>
+                        <a href="https://github.com/dpsnet/Physical-Applications/blob/master/P-15_split/P-15.md" class="paper-link">
+                            <span class="lang-content active">查看论文</span>
+                            <span class="lang-content">View Paper</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -571,33 +818,75 @@
     <section id="achievements" class="achievements">
         <div class="container">
             <div class="section-title">
-                <h2>研究成果</h2>
-                <p>本研究的主要贡献和成果</p>
+                <h2>
+                    <span class="lang-content active">研究成果</span>
+                    <span class="lang-content">Research Achievements</span>
+                </h2>
+                <p>
+                    <span class="lang-content active">本研究的主要贡献和成果</span>
+                    <span class="lang-content">The main contributions and achievements of this research</span>
+                </p>
             </div>
             <div class="achievement-list">
                 <div class="achievement-item">
-                    <h4>建立了PTE问题与分形几何的深层联系</h4>
-                    <p>揭示了PTE解的几何表示和分形特征，证明了PTE解空间的豪斯多夫维数为2m - n，为理解PTE解的分布规律提供了新的视角。</p>
+                    <h4>
+                        <span class="lang-content active">建立了PTE问题与分形几何的深层联系</span>
+                        <span class="lang-content">Established deep connections between PTE problems and fractal geometry</span>
+                    </h4>
+                    <p>
+                        <span class="lang-content active">揭示了PTE解的几何表示和分形特征，证明了PTE解空间的豪斯多夫维数为2m - n，为理解PTE解的分布规律提供了新的视角。</span>
+                        <span class="lang-content">Revealed geometric representations and fractal characteristics of PTE solutions, proved that the Hausdorff dimension of PTE solution space is 2m - n, providing a new perspective for understanding the distribution规律 of PTE solutions.</span>
+                    </p>
                 </div>
                 <div class="achievement-item">
-                    <h4>建立了模形式理论与PTE解生成函数的对应关系</h4>
-                    <p>利用权为1的模形式构造PTE解系，证明了素数PTE解的存在性，为素数分布规律的研究提供了新的方法。</p>
+                    <h4>
+                        <span class="lang-content active">建立了模形式理论与PTE解生成函数的对应关系</span>
+                        <span class="lang-content">Established correspondence between modular form theory and PTE solution generating functions</span>
+                    </h4>
+                    <p>
+                        <span class="lang-content active">利用权为1的模形式构造PTE解系，证明了素数PTE解的存在性，为素数分布规律的研究提供了新的方法。</span>
+                        <span class="lang-content">Constructed PTE solution systems using weight 1 modular forms, proved the existence of prime PTE solutions, providing a new method for studying prime number distribution patterns.</span>
+                    </p>
                 </div>
                 <div class="achievement-item">
-                    <h4>建立了谱维流动与PTE解尺度变化的模型</h4>
-                    <p>描述了PTE解的能标依赖性，为理解时空几何的分形结构提供了数学基础，与量子引力中的谱维流动概念建立了联系。</p>
+                    <h4>
+                        <span class="lang-content active">建立了谱维流动与PTE解尺度变化的模型</span>
+                        <span class="lang-content">Established model of spectral dimension flow and PTE solution scale changes</span>
+                    </h4>
+                    <p>
+                        <span class="lang-content active">描述了PTE解的能标依赖性，为理解时空几何的分形结构提供了数学基础，与量子引力中的谱维流动概念建立了联系。</span>
+                        <span class="lang-content">Described energy-scale dependence of PTE solutions, provided mathematical foundation for understanding fractal structure of spacetime geometry, and established connections with the concept of spectral dimension flow in quantum gravity.</span>
+                    </p>
                 </div>
                 <div class="achievement-item">
-                    <h4>设计了基于L-BFGS-B的高效PTE解搜索算法</h4>
-                    <p>结合分形几何和模形式理论，提高了PTE解的搜索效率，为大规模PTE问题的研究提供了技术支持。</p>
+                    <h4>
+                        <span class="lang-content active">设计了基于L-BFGS-B的高效PTE解搜索算法</span>
+                        <span class="lang-content">Designed efficient PTE solution search algorithm based on L-BFGS-B</span>
+                    </h4>
+                    <p>
+                        <span class="lang-content active">结合分形几何和模形式理论，提高了PTE解的搜索效率，为大规模PTE问题的研究提供了技术支持。</span>
+                        <span class="lang-content">Combined fractal geometry and modular form theory, improved search efficiency for PTE solutions, providing technical support for research on large-scale PTE problems.</span>
+                    </p>
                 </div>
                 <div class="achievement-item">
-                    <h4>证明了素数PTE解的存在性和无限多解的存在性</h4>
-                    <p>利用模形式的傅里叶系数构造素数PTE解，分析了素数PTE解的分布规律，为素数研究领域提供了新的成果。</p>
+                    <h4>
+                        <span class="lang-content active">证明了素数PTE解的存在性和无限多解的存在性</span>
+                        <span class="lang-content">Proved existence of prime PTE solutions and infinite solutions</span>
+                    </h4>
+                    <p>
+                        <span class="lang-content active">利用模形式的傅里叶系数构造素数PTE解，分析了素数PTE解的分布规律，为素数研究领域提供了新的成果。</span>
+                        <span class="lang-content">Constructed prime PTE solutions using Fourier coefficients of modular forms, analyzed distribution patterns of prime PTE solutions, providing new achievements in prime number research.</span>
+                    </p>
                 </div>
                 <div class="achievement-item">
-                    <h4>将PTE问题推广到高维空间</h4>
-                    <p>研究了高维PTE解的几何性质和构造方法，为统一场理论中的高维时空模型提供了数学基础。</p>
+                    <h4>
+                        <span class="lang-content active">将PTE问题推广到高维空间</span>
+                        <span class="lang-content">Generalized PTE problems to high-dimensional spaces</span>
+                    </h4>
+                    <p>
+                        <span class="lang-content active">研究了高维PTE解的几何性质和构造方法，为统一场理论中的高维时空模型提供了数学基础。</span>
+                        <span class="lang-content">Studied geometric properties and construction methods of high-dimensional PTE solutions, providing mathematical foundation for high-dimensional spacetime models in unified field theory.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -606,14 +895,29 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
-                <h2>关于作者</h2>
-                <p>致力于数学与物理交叉领域的研究</p>
+                <h2>
+                    <span class="lang-content active">关于作者</span>
+                    <span class="lang-content">About the Author</span>
+                </h2>
+                <p>
+                    <span class="lang-content active">致力于数学与物理交叉领域的研究</span>
+                    <span class="lang-content">Dedicated to research at the intersection of mathematics and physics</span>
+                </p>
             </div>
             <div class="about-content">
-                <p>作者专注于数学与物理学的交叉研究，特别是利用现代数学工具（如分形几何、模形式理论、谱维流动等）探索统一场理论的基础框架。研究涵盖从基础数学理论到物理应用的多个层面，旨在为统一场理论的发展提供新的数学基础和方法。</p>
-                <p>通过整合分形几何、模形式理论、谱维流动等现代数学工具，作者构建了一套从数学基础到物理应用的完整研究体系，为统一场理论的发展提供了新的思路和方法。</p>
+                <p>
+                    <span class="lang-content active">作者专注于数学与物理学的交叉研究，特别是利用现代数学工具（如分形几何、模形式理论、谱维流动等）探索统一场理论的基础框架。研究涵盖从基础数学理论到物理应用的多个层面，旨在为统一场理论的发展提供新的数学基础和方法。</span>
+                    <span class="lang-content">The author focuses on interdisciplinary research between mathematics and physics, particularly using modern mathematical tools (such as fractal geometry, modular form theory, spectral dimension flow, etc.) to explore the foundational framework of unified field theory. The research covers multiple levels from basic mathematical theory to physical applications, aiming to provide new mathematical foundations and methods for the development of unified field theory.</span>
+                </p>
+                <p>
+                    <span class="lang-content active">通过整合分形几何、模形式理论、谱维流动等现代数学工具，作者构建了一套从数学基础到物理应用的完整研究体系，为统一场理论的发展提供了新的思路和方法。</span>
+                    <span class="lang-content">By integrating modern mathematical tools such as fractal geometry, modular form theory, and spectral dimension flow, the author has constructed a complete research system from mathematical foundations to physical applications, providing new ideas and methods for the development of unified field theory.</span>
+                </p>
                 <div style="margin-top: 30px;">
-                    <a href="https://github.com/dpsnet" class="btn" target="_blank">访问GitHub</a>
+                    <a href="https://github.com/dpsnet" class="btn" target="_blank">
+                        <span class="lang-content active">访问GitHub</span>
+                        <span class="lang-content">Visit GitHub</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -623,23 +927,50 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>统一场理论研究</h3>
-                    <p>探索数学与物理的交叉领域，构建统一场理论的基础框架</p>
+                    <h3>
+                        <span class="lang-content active">统一场理论研究</span>
+                        <span class="lang-content">Unified Field Theory Research</span>
+                    </h3>
+                    <p>
+                        <span class="lang-content active">探索数学与物理的交叉领域，构建统一场理论的基础框架</span>
+                        <span class="lang-content">Exploring the intersection of mathematics and physics, building the foundation for unified field theory</span>
+                    </p>
                 </div>
                 <div class="footer-section">
-                    <h3>相关链接</h3>
-                    <p><a href="https://github.com/dpsnet/Advanced-Theoretical-Framework">高级理论框架</a></p>
-                    <p><a href="https://github.com/dpsnet/Fundamental-Mathematics">基础数学理论</a></p>
-                    <p><a href="https://github.com/dpsnet/Physical-Applications">物理应用</a></p>
-                    <p><a href="https://github.com/dpsnet/Core-Theory">核心理论</a></p>
+                    <h3>
+                        <span class="lang-content active">相关链接</span>
+                        <span class="lang-content">Related Links</span>
+                    </h3>
+                    <p><a href="https://github.com/dpsnet/Advanced-Theoretical-Framework">
+                        <span class="lang-content active">高级理论框架</span>
+                        <span class="lang-content">Advanced Theoretical Framework</span>
+                    </a></p>
+                    <p><a href="https://github.com/dpsnet/Fundamental-Mathematics">
+                        <span class="lang-content active">基础数学理论</span>
+                        <span class="lang-content">Fundamental Mathematics</span>
+                    </a></p>
+                    <p><a href="https://github.com/dpsnet/Physical-Applications">
+                        <span class="lang-content active">物理应用</span>
+                        <span class="lang-content">Physical Applications</span>
+                    </a></p>
+                    <p><a href="https://github.com/dpsnet/Core-Theory">
+                        <span class="lang-content active">核心理论</span>
+                        <span class="lang-content">Core Theory</span>
+                    </a></p>
                 </div>
                 <div class="footer-section">
-                    <h3>联系方式</h3>
+                    <h3>
+                        <span class="lang-content active">联系方式</span>
+                        <span class="lang-content">Contact</span>
+                    </h3>
                     <p><a href="https://github.com/dpsnet">GitHub</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 统一场理论研究. All rights reserved.</p>
+                <p>
+                    <span class="lang-content active">&copy; 2026 统一场理论研究. All rights reserved.</span>
+                    <span class="lang-content">&copy; 2026 Unified Field Theory Research. All rights reserved.</span>
+                </p>
             </div>
         </div>
     </footer>
@@ -665,6 +996,34 @@
                 nav.style.backgroundColor = 'white';
                 nav.style.backdropFilter = 'none';
             }
+        });
+
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langBtns = document.querySelectorAll('.lang-btn');
+
+            langBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+
+                    // 更新按钮状态
+                    langBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // 更新内容显示
+                    document.querySelectorAll('.lang-content').forEach((content, index) => {
+                        content.classList.remove('active');
+                        // 根据元素在父元素中的位置判断语言
+                        const parent = content.parentElement;
+                        const siblings = Array.from(parent.querySelectorAll('.lang-content'));
+                        const contentIndex = siblings.indexOf(content);
+                        
+                        if ((lang === 'zh' && contentIndex === 0) || (lang === 'en' && contentIndex === 1)) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
         });
     </script>
 </body>
