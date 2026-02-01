@@ -1,11 +1,11 @@
-# 统一场理论研究网页
+# 固定4维拓扑-动态谱维多重扭转分形Clifford代数统一场理论研究网页
 
-这是一个展示统一场理论研究成果的个人GitHub网页，包含理论介绍、论文链接和研究成果等内容。
+这是一个展示固定4维拓扑-动态谱维多重扭转分形Clifford代数统一场理论研究成果的个人GitHub网页，包含理论介绍、论文链接和研究成果等内容。
 
 ## 项目结构
 
 ```
-Unified-Field-Theory-Page/
+Fractal-Clifford-Algebra-UFT-Page/
 ├── index.html          # 主页面
 └── README.md           # 项目说明
 ```
@@ -54,7 +54,7 @@ Unified-Field-Theory-Page/
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/dpsnet/Unified-Field-Theory-Page.git
+   git clone https://github.com/dpsnet/Fractal-Clifford-Algebra-UFT-Page.git
    ```
 
 2. **本地预览**
